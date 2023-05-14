@@ -30,13 +30,13 @@ class Nue {
   // }
 
   setInitialVisibility() {
-    const vifElements = this.appRoot.querySelectorAll("[n-if]");
-    const vifNotElements = this.appRoot.querySelectorAll("[n-if-not]");
-    vifElements.forEach((el) => {
+    const nifElements = this.appRoot.querySelectorAll("[n-if]");
+    const nifNotElements = this.appRoot.querySelectorAll("[n-if-not]");
+    nifElements.forEach((el) => {
       const modelKey = el.getAttribute("n-if");
       el.style.visibility = this.data[modelKey] ? "visible" : "hidden";
     });
-    vifNotElements.forEach((el) => {
+    nifNotElements.forEach((el) => {
       const modelKey = el.getAttribute("n-if-not");
       el.style.visibility = !this.data[modelKey] ? "visible" : "hidden";
     });
@@ -80,19 +80,19 @@ class Nue {
     const contentElements = this.appRoot.querySelectorAll(
       `[n-reflect=${modelName}]`
     );
-    const vifElements = this.appRoot.querySelectorAll(`[n-if=${modelName}]`);
+    const nifElements = this.appRoot.querySelectorAll(`[n-if=${modelName}]`);
 
-    const vifNotElements = this.appRoot.querySelectorAll(
+    const nifNotElements = this.appRoot.querySelectorAll(
       `[n-if-not=${modelName}]`
     );
 
     contentElements.forEach((el) => {
       el.innerText = modelValue;
     });
-    vifElements.forEach((el) => {
+    nifElements.forEach((el) => {
       el.style.visibility = modelValue ? "visible" : "hidden";
     });
-    vifNotElements.forEach((el) => {
+    nifNotElements.forEach((el) => {
       el.style.visibility = !modelValue ? "visible" : "hidden";
     });
   }
