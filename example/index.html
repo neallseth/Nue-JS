@@ -7,13 +7,13 @@
 
   <body>
     <div id="app">
-      <h1 v-reflect="title"></h1>
-      <input placeholder="Set title" v-update="title" />
-      <p v-if-not="count">Use the buttons below to modify count</p>
-      <p v-if="count">Well done!</p>
-      <button v-click="handleInc">Increment</button>
-      <button v-click="resetCount">Reset</button>
-      <p>Count: <span v-reflect="count"></span></p>
+      <h1 n-reflect="title"></h1>
+      <input placeholder="Set title" n-update="title" />
+      <p n-if-not="count">Use the buttons below to modify count</p>
+      <p n-if="count">Well done!</p>
+      <button n-click="handleInc">Increment</button>
+      <button n-click="resetCount">Reset</button>
+      <p>Count: <span n-reflect="count"></span></p>
     </div>
     <script src="../src/Nue.js"></script>
     <script src="index.js"></script>

@@ -30,23 +30,23 @@ class Nue {
   // }
 
   setInitialVisibility() {
-    const vifElements = this.appRoot.querySelectorAll("[v-if]");
-    const vifNotElements = this.appRoot.querySelectorAll("[v-if-not]");
+    const vifElements = this.appRoot.querySelectorAll("[n-if]");
+    const vifNotElements = this.appRoot.querySelectorAll("[n-if-not]");
     vifElements.forEach((el) => {
-      const modelKey = el.getAttribute("v-if");
+      const modelKey = el.getAttribute("n-if");
       el.style.visibility = this.data[modelKey] ? "visible" : "hidden";
     });
     vifNotElements.forEach((el) => {
-      const modelKey = el.getAttribute("v-if-not");
+      const modelKey = el.getAttribute("n-if-not");
       el.style.visibility = !this.data[modelKey] ? "visible" : "hidden";
     });
   }
 
   bindEvents() {
-    const inputEls = this.appRoot.querySelectorAll("[v-update]");
+    const inputEls = this.appRoot.querySelectorAll("[n-update]");
     inputEls.forEach((el) => {
       if (el.tagName === "INPUT") {
-        const modelName = el.getAttribute("v-update");
+        const modelName = el.getAttribute("n-update");
         el.addEventListener("input", (e) => {
           this.data[modelName] = e.target.value;
           this.updateUIFromModel(modelName);
@@ -54,9 +54,9 @@ class Nue {
       }
     });
 
-    const clickEls = this.appRoot.querySelectorAll("[v-click]");
+    const clickEls = this.appRoot.querySelectorAll("[n-click]");
     clickEls.forEach((el) => {
-      const clickHandlerKey = el.getAttribute("v-click");
+      const clickHandlerKey = el.getAttribute("n-click");
       const targetMethod = this.data[clickHandlerKey].bind(this.data);
       if (typeof targetMethod === "function") {
         el.addEventListener("click", () => {
@@ -78,12 +78,12 @@ class Nue {
       return;
     }
     const contentElements = this.appRoot.querySelectorAll(
-      `[v-reflect=${modelName}]`
+      `[n-reflect=${modelName}]`
     );
-    const vifElements = this.appRoot.querySelectorAll(`[v-if=${modelName}]`);
+    const vifElements = this.appRoot.querySelectorAll(`[n-if=${modelName}]`);
 
     const vifNotElements = this.appRoot.querySelectorAll(
-      `[v-if-not=${modelName}]`
+      `[n-if-not=${modelName}]`
     );
 
     contentElements.forEach((el) => {
