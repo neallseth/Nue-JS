@@ -1,4 +1,4 @@
-# Nue-JS
+# Nue.js
 
 Just for fun – a mini JavaScript "framework" with reactive state, conditional rendering, and event handling.
 
